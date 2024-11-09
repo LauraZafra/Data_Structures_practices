@@ -1,0 +1,126 @@
+/*! \mainpage Edición de imágenes
+
+
+# Información sobre Doxygen
+Doxygen admite el uso de la [sintaxis de Markdown (Consulta aquí los comandos básicos)](https://www.markdownguide.org/basic-syntax).
+
+Así como el uso de  <a href="https://htmlcheatsheet.com/">sintaxis <strong>HTML</strong></a>. Esto es especialmente útil
+para aquellos aspectos que Markdown no permite modificar, como el <span  style="color:red">color</span>. Aunque es buena idea evitarlo en la medida de lo posible, por dos
+motivos:
+
+1. <span style="font-size:1.1em">Hace el código <strong>poco</strong> <span style="  background-image: linear-gradient(to left, #4285f4, #34a853, #fbbc05, #ea4335); -webkit-background-clip: text; color: transparent;"> <strong> LEGIBLE </strong> </span></span>
+2. La idea detrás de Markdown es separar _aspecto_ y _contenido_. Y es una __gran idea__.
+
+La forma más correcta de modificar el aspecto debería ser mediante un documento ``.css`` configurado en el archivo ``Doxyfile.in``.
+Si te interesa, puedes echarle un vistazo a la [documentación](https://www.doxygen.nl/manual/customize.html) o a
+temas customizados como [este](https://jothepro.github.io/doxygen-awesome-css/). Aunque el tema por defecto nos parece
+perfecto, _CLÁSICO_. Así puedes centrarte en el contenido.
+
+Por último, lo hemos visto en clase y hay suficientes ejemplos en el código fuente proporcionado, pero puedes consultar la
+mayor parte de la sintaxis de Doxygen para comentar código en su
+[documentación](https://www.doxygen.nl/manual/docblocks.html).
+
+# Introducción
+
+<p>Antonio Manuel De Pablos Pancorbo<br>
+Laura Zafra Alarcos
+
+Este programa trabaja con imágenes y dispone de distintas funcionalidades para editarlas. Algunas de sus utilidades son
+recortar imágenes, hacer zoom en ellas, hacer iconos, barajar sus filas, invertir los colores de una imagen o aumentar el contraste
+entre ellos.
+
+# Ejecutables
+
+@image html invert.png
+## Negativo:
+
+Calcula el negativo de una imagen
+
+> __negativo__ \<FichImagenOriginal\> \<FichImagenDestino\>
+@param "<FichImagenOriginal>" Imagen PGM a la que se va a calcular
+@param <FichImagenDestino> Imagen PGM resultado de calcular el negativo
+
+@image html vacas.png "Imagen original"
+@image html subimagen_pub.png "Imagen modificada"
+## Subimagen:
+
+Genera una imagen recortada
+
+> __subimagen__ \<FichImagenOriginal\> \<FichImagenDestino\>
+@param "<FichImagenOriginal>" Imagen PGM a la que se va a calcular
+@param <FichImagenDestino> Imagen PGM resultado de calcular la subimagen
+
+@image html vacas.png "Imagen original"
+@image html icono_pub.png "Imagen modificada"
+## Icono:
+
+Genera un icono como reducción de una imagen
+
+> __icono__ \<FichImagenOriginal\> \<FichImagenDestino\> factor
+@param "<FichImagenOriginal>" Imagen PGM a la que se va a calcular
+@param <FichImagenDestino> Imagen PGM resultado de calcular la subimagen
+@param <factor> Factor de reducción de la imagen original con respecto al icono
+
+@image html vacas.png "Imagen original"
+@image html contraste_pub.png "Imagen modificada"
+## Contraste:
+
+Modifica el contraste de una imagen
+
+> __contraste__ \<FichImagenOriginal\> \<FichImagenDestino\> nrow ncol height width
+@param "<FichImagenOriginal>" Imagen PGM a la que se va a calcular
+@param <FichImagenDestino> Imagen PGM resultado de calcular la subimagen
+* @param <nrow> Umbral inferior de la imagen de entrada.
+* @param <ncol> Umbral superior de la imagen de entrada.
+* @param <height> Umbral inferior de la imagen de salida.
+* @param <width> Umbral superior de la imagen de salida.
+
+
+@image html vacas.png "Imagen original"
+@image html zoom_pub.png "Imagen modificada"
+## Zoom:
+
+Genera una imagen aumentada 2x
+
+> _Zoom2x_ \<FichImagenOriginal\> \<FichImagenDestino\> \<fila\> \<col\> \<lado\>
+@param "<FichImagenOriginal>" Imagen PGM a la que se va a hacer zoom
+@param <FichImagenDestino> Imagen PGM resultado de hacer zoom
+@param <fila> y <col> especifican la coordenada(sobre la imagen original) de la esquina superior izquierda de la subimagen que se va a extraer
+@param <lado> Tamaño del lado del cuadrado. El cuadrado descrito debe estar totalmente incluido en la imagen
+
+
+@image html shuffle_9973.png "Imagen original"
+@image html shuffle.png "Imagen modificada"
+## Barajar:
+
+Baraja pseudoaleatoriamente las filas de una imagen.
+
+> _ShuffleRows_ \<FichImagenOriginal\> \<FichImagenDestino\>
+@param "<FichImagenOriginal>" Imagen PGM a la que se va a hacer zoom
+@param <FichImagenDestino> Imagen PGM resultado de hacer zoom
+
+
+
+# Barajar: análisis de eficiencia
+
+@image html Graficaeficienciasinmejorar.png "Eficiencia sin mejorar"
+
+El tiempo medio de ejecución es de 0.00061838 segundos.
+
+@image html Graficaeficienciamejorada.png "Eficiencia mejorada"
+
+El tiempo medio de ejecución es de 0'00000121 segundos.
+
+@image html Graficasjuntas.png "Comparativa de la eficiencia de ambas funciones"
+
+En el eje x de la gráfica se muestra el número de veces que se ejecuta la función ShuffleRows, mientras que en el eje y,
+se ve el tiempo en segundos que se va acumulando con cada ejecución. La gráfica azul, muestra el código sin mejorar la eficiencia,
+siendo ésta O(rows*cols). La gráfica naranja, muestra el código tras haberla mejorado, siendo ahora O(rows).
+
+A continuación podemos ver el análisis de eficiencia teórica de ambas versiones de la función:
+
+@image html grande1.png "Eficiencia sin mejorar: O(rows*cols)"
+@image html grande2.png "Eficiencia mejorada: O(rows)"
+
+
+*/

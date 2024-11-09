@@ -1,0 +1,40 @@
+/*! \mainpage Construcción del TDA MaxStack y MaxQueue
+
+# Introducción
+
+El programa implementa una pila usando una cola que almacena elementos que contienen el valor y el máximo de la pila.
+También implementa una cola usando una pila que almacena elementos que contienen el valor y el máximo en cada salida.
+
+# Ejecutables
+
+## Pilamax:
+El programa admite como entrada números o puntos que determinan el comportamiento de la pila. Si se introduce un valor entero, este se
+añadirá en la última posición de la pila, en cambio si se introduce un punto se sacará por pantalla el último elemento de la pila.
+
+Cuando se imprima un elemento, se mostrará también el valor del máximo en la pila.
+
+Por ejemplo, si nuestra entrada es 1 2 . 3 4 . . ., la salida sería:
+<p>2,2<br>
+4,4<br>
+3,3<br>
+1,1<br>
+
+@image html pila.png
+
+## Colamax:
+El programa admite como entrada números o puntos que determinan el comportamiento de la cola. Si se introduce un valor entero, este se
+añadirá en la última posición de la cola, en cambio si se introduce un punto se sacará por pantalla el primer elemento de la cola.
+
+Cuando se imprima un elemento, se mostrará también el valor del máximo en la cola.
+
+Por ejemplo, si nuestra entrada es 1 2 . 3 4 . . ., la salida sería:
+<p>1,2<br>
+2,4<br>
+3,4<br>
+4,4<br>
+
+@image html cola2.png
+
+La clase elemento está documentada dentro de maxstack.h y de maxqueue.h
+
+*/
